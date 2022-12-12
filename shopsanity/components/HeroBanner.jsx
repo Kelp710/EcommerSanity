@@ -10,7 +10,7 @@ const HeroBanner = () => {
             <img src="" alt="headphones" className='hero-banner-image'></img>
             <div>
                 <Link href="/product/ID">
-                    <botton type="button"> Button</botton>
+                    <botton type="button"> Button </botton>
                 </Link>
                 <div className='desc'>
                     <h5>Descriptions</h5>
