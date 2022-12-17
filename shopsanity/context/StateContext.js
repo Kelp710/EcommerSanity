@@ -10,10 +10,25 @@ export const StateContext = ({children}) => {
     const [totalQuantities, settotalQuantities] = useState();
     const [qty, setQty] = useState(1);
 
+    const onAdd = (product, quantity) => {
+        const checkProductInCart= cartItems.find((item) => item._id === product.id);
+        if (checkProductInCart){
+            settotalPrice((prevTotalPrice) => prevTotalPrice + product.price * quantity)
+            settotalQuantities((prevQuantity) => prevQuantity + quantity)
+
+            const updatedCartItems = cartItems.map((cartProduct)=> {
+                if (cartProduct._id === product._id) return {
+                    ...cartProduct,
+                    quantity: cartProduct.quantity + quantity
+                }
+            })
+        }
+    }
+
     const incQty = () =>{
         setQty((prevQty) => prevQty + 1)
     }
-    const secQty = () =>{
+    const decQty = () =>{
         setQty((prevQty) => {if(prevQty-1<1) return 1
         return prevQty-1
         })
@@ -26,12 +41,11 @@ export const StateContext = ({children}) => {
         totalQuantities,
         qty,
         incQty,
-        secQty
+        decQty
     }}>
         {children}
     </Context.Provider>)
 }
 
-export const useStsteContext = () => {
+export const useStateContext = () => 
     useContext(Context)
-}
