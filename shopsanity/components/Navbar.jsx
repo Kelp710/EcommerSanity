@@ -7,7 +7,6 @@ import {useStateContext} from '../context/StateContext'
 
 const Navbar = () => {
   const {showCart, setShowCart, totalQuantities} = useStateContext();
-  {console.log(totalQuantities)}
   return (
     <div className='navbar-container'>
       <p className='logo'>
@@ -15,13 +14,13 @@ const Navbar = () => {
       </p>
       <button type='button'
       className='cart-icon'
-      onClick=''
+      onClick={()=>setShowCart(true)}
       >
         <AiOutlineShopping/>
         <span className='cart-item-qty'>{totalQuantities}</span>
       </button>
 
-      <Cart/>
+      {showCart && <Cart/>}
     </div>
   )
 }

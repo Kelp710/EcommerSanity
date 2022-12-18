@@ -51,17 +51,11 @@ const { qty, incQty,decQty, onAdd } = useStateContext();
                     <h3>Quantity: </h3>
                     <p className='quantity-desc'>
                         <span className='minus'
-                        onClick={decQty}>
-                         <AiOutlineMinus/>
-                        </span>
+                        onClick={decQty}><AiOutlineMinus/></span>
                         <span className='num'
-                        onClick="">
-                          {qty}
-                        </span>
+                        onClick="">{qty}</span>
                         <span className='plus'
-                        onClick={incQty}>
-                          <AiOutlinePlus/>
-                        </span>
+                        onClick={incQty}><AiOutlinePlus/></span>
                     </p>
                 </div>
                 <div className='buttons'>

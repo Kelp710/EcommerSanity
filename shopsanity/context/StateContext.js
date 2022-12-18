@@ -26,8 +26,9 @@ export const StateContext = ({children}) => {
         else{
             product.quantity = quantity
 
-            setcartItems([...cartItems],{...product})
+            setcartItems([...cartItems,{...product}])
         }
+        {console.log(cartItems)}
         toast.success(`${qty} ${product.name} added to your cart!`);
     }
 
@@ -42,6 +43,7 @@ export const StateContext = ({children}) => {
 
     return(<Context.Provider value={{
         showCart,
+        setShowCart,
         cartItems,
         totalPrice,
         totalQuantities,
