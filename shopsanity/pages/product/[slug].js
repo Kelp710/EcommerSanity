@@ -8,7 +8,7 @@ import {useStateContext } from '../../context/StateContext';
 const ProductDetails = ({product, products}) => {
 const {image, name, details, price} = product;
 const [index, setIndex] = useState(0)
-const { qty, incQty,decQty} = useStateContext();
+const { qty, incQty,decQty, onAdd } = useStateContext();
 
 
   return (
@@ -19,7 +19,6 @@ const { qty, incQty,decQty} = useStateContext();
                     <img src={urlFor(image && image[index])} className='product-detail-image'></img>
                 </div>
                 <div className='small-images-container'>
-                    {console.log(image)}
                     {image?.map((item, i) => (
                          
                         <img  
@@ -68,11 +67,11 @@ const { qty, incQty,decQty} = useStateContext();
                 <div className='buttons'>
                    <button type='button' 
                    className='add-to-cart'
-                   onClick=""
+                   onClick={() => onAdd(product, qty)}
                    >Add to Cart</button> 
                    <button type='button' 
                    className='buy-now'
-                   onClick=""
+                   onClick=''
                    >Buy Now</button> 
                 </div>
             </div>
